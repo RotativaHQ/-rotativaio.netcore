@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <AssemblyName>RotativaIO.NetCore</AssemblyName>
+    <RootNamespace>RotativaIO.NetCore</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="RazorEngineCore" Version="2020.2.3" />
+  </ItemGroup>
+
+</Project>

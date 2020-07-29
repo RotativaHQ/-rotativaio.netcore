@@ -5,6 +5,7 @@
     <AssemblyName>RotativaIO.NetCore</AssemblyName>
     <RootNamespace>RotativaIO.NetCore</RootNamespace>
     <Description>.Net Core client for rotativa.io service</Description>
+    <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
   </PropertyGroup>
 
   <ItemGroup>

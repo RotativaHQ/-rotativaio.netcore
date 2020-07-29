@@ -21,7 +21,13 @@ var model = new TestModel { Name = "Giorgio" };
 using (var pdfHelper = new PdfHelper(rotativaioKey, "https://eunorth.rotativahq.com"))
 { 
 
-    var pdfBytes = await pdfHelper.GetPdfAsByteArray(template, model, new RotativaOptions { PageSize = Size.A5 });
+    var pdfBytes = await pdfHelper.GetPdfAsByteArray(
+        template, 
+        model, 
+        new RotativaOptions 
+        { 
+            PageSize = Size.A5 
+        });
     
     /// do something with it like, for example, send the PDF via email
     

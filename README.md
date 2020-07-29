@@ -29,7 +29,7 @@ using (var pdfHelper = new PdfHelper(rotativaioKey, "https://eunorth.rotativahq.
             PageSize = Size.A5 
         });
     
-    /// do something with it like, for example, send the PDF via email
+    /// do something with it, like, for example, send the PDF via email
     
 }
 

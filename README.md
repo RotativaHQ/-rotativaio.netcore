@@ -22,12 +22,12 @@ using (var pdfHelper = new PdfHelper(rotativaioKey, "https://eunorth.rotativahq.
 { 
 
     var pdfBytes = await pdfHelper.GetPdfAsByteArray(
-        template, 
-        model, 
-        new RotativaOptions 
-        { 
-            PageSize = Size.A5 
-        });
+            template, 
+            model, 
+            new RotativaOptions 
+            { 
+                PageSize = Size.A5 
+            });
     
     /// do something with it, like, for example, send the PDF via email
     

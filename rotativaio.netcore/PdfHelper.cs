@@ -104,10 +104,21 @@ namespace RotativaIO.NetCore
 
         public async Task<Byte[]> GetPdfAsByteArray<T>(string templateText, T model, RotativaOptions rotativaOptions = null)
         {
-            var pdfUrl = await GetPdfUrl<T>(templateText, model, rotativaOptions);
-            var pdf = await httpClient.GetAsync(pdfUrl);
-            var pdfBytes = await pdf.Content.ReadAsByteArrayAsync();
-            return pdfBytes;
+            var pdf = await RetryOperationHelper.ExecuteWithRetry<Byte[]>(async () =>
+            {
+                var pdfUrl = await GetPdfUrl<T>(templateText, model, rotativaOptions);
+                var pdfTemp = await httpClient.GetAsync(pdfUrl);
+                if (pdfTemp.IsSuccessStatusCode)
+                {
+                    var pdfBytes = await pdfTemp.Content.ReadAsByteArrayAsync();
+                    return pdfBytes;
+                }
+                else
+                {
+                    throw new HttpRequestException("Call to retrieve PDF content was not successful.");
+                }
+            }, 3, TimeSpan.FromMilliseconds(100));
+            return pdf;
         }
 
         public async Task<Stream> GetPdfAsStream<T>(string templateText, T model, RotativaOptions rotativaOptions = null)

@@ -6,7 +6,8 @@
     <RootNamespace>RotativaIO.NetCore</RootNamespace>
     <Description>.Net Core client for rotativa.io service</Description>
     <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
-    <Version>1.1.0</Version>
+    <Version>1.2.0-beta</Version>
+    <PackageReleaseNotes>added retry logic for PDF bytes download</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>
